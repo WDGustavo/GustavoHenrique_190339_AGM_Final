@@ -10,7 +10,7 @@ public class Personagem {
     private final String altura;
     private final String nascimento;
 
-    //Cria o encapsulamento
+    //Cria o construtor
     public Personagem(String nome, String altura, String nascimento) {
         //Seta o que esta escrito na string para o encapsulamento
         this.nome = nome;
@@ -18,7 +18,7 @@ public class Personagem {
         this.nascimento = nascimento;
     }
 
-    //retornara o que esta na string nome
+    //retornara o que foi escrito pelo usuario
     @NonNull
     @Override
     public String toString() {
