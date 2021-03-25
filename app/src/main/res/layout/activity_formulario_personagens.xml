@@ -8,7 +8,7 @@
     tools:context=".ui.actvities.FormularioPersonagensActivity">
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/edittext_Nome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -16,23 +16,23 @@
         android:hint="Name" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/edittext_Altura"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="data de nascimento" />
+        android:inputType="numberDecimal"
+        android:hint="altura" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/edittext_data_nascimento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="descrição" />
+        android:hint="data de nascimento"
+        android:inputType="date" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_enviar"
         android:layout_width="138dp"
         android:layout_height="wrap_content"
         android:text="enviar" />
