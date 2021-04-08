@@ -13,7 +13,15 @@ import com.gustavoh.listchracters.R;
 import com.gustavoh.listchracters.dao.PersonagemDAO;
 import com.gustavoh.listchracters.model.Personagem;
 
+import java.io.Serializable;
+
 public class FormularioPersonagensActivity extends AppCompatActivity {
+
+    private EditText campoNome;
+    private EditText campoAltura;
+    private EditText campoNascimento;
+    //Cria uma variavel referente a classe PersonagemDAO
+    private final PersonagemDAO dao = new PersonagemDAO();;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,13 +29,10 @@ public class FormularioPersonagensActivity extends AppCompatActivity {
         //Pega o layout do formulario personagem
         setContentView(R.layout.activity_formulario_personagens);
 
-        //Cria uma variavel referente a classe PersonagemDAO
-        PersonagemDAO dao = new PersonagemDAO();
-
         //acha os EditTexts
-        EditText campoNome = findViewById(R.id.edittext_Nome);
-        EditText campoAltura = findViewById(R.id.edittext_Altura);
-        EditText campoNascimento = findViewById(R.id.edittext_data_nascimento);
+        campoNome = findViewById(R.id.edittext_Nome);
+        campoAltura = findViewById(R.id.edittext_Altura);
+        campoNascimento = findViewById(R.id.edittext_data_nascimento);
 
         //encontra o botão
         Button botaoEnviar = findViewById(R.id.button_enviar);
@@ -46,16 +51,28 @@ public class FormularioPersonagensActivity extends AppCompatActivity {
 
                 //salva o que esta na variavel
                 dao.salva(personagemSalvo);
-
-                //vai apra a lista apos clicar no botão
-                startActivity(new Intent(FormularioPersonagensActivity.this, ListaPersonagemActivity.class));
+                finish();
+                //vai para a lista apos clicar no botão
+                //startActivity(new Intent(FormularioPersonagensActivity.this, ListaPersonagemActivity.class));
 
                 //Utilização do encapsulamento
-                new Personagem(nome,altura,nascimento);
+                //new Personagem(nome,altura,nascimento);
+
+                personagemSalvo.setNome(nome);
+                personagemSalvo.setAltura(altura);
+                personagemSalvo.setNascimento(nascimento);
+                dao.editar(personagemSalvo);
 
                 //Toast.makeText(FormularioPersonagensActivity.this, personagemSalvo.getNome() + " - " + personagemSalvo.getAltura() + " - " + personagemSalvo.getNascimento(),Toast.LENGTH_SHORT).show();
 
                 //Toast.makeText(FormularioPersonagensActivity.this,"Estou Funcionando",Toast.LENGTH_SHORT).show();
+
+                Intent dados = getIntent();
+                Personagem personagem = (Personagem) dados.getSerializableExtra("personagem");
+                campoNome.setText(personagem.getNome());
+                campoAltura.setText(personagem.getAltura());
+                campoNascimento.setText(personagem.getNascimento());
+
             }
         });
     }
