@@ -47,7 +47,6 @@ public class ListaPersonagemActivity extends AppCompatActivity {
             }
         });
 
-        //List<String> personagens = new ArrayList<>(Arrays.asList("Alex","Ryu","ken","Guile"));//cria a lista com os nomes
     }
 
     //Faz a Persistencia da lista

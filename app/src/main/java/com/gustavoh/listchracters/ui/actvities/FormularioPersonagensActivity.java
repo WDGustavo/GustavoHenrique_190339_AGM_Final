@@ -52,28 +52,17 @@ public class FormularioPersonagensActivity extends AppCompatActivity {
                 //salva o que esta na variavel
                 dao.salva(personagemSalvo);
                 finish();
-                //vai para a lista apos clicar no botão
-                //startActivity(new Intent(FormularioPersonagensActivity.this, ListaPersonagemActivity.class));
-
-                //Utilização do encapsulamento
-                //new Personagem(nome,altura,nascimento);
 
                 personagemSalvo.setNome(nome);
                 personagemSalvo.setAltura(altura);
                 personagemSalvo.setNascimento(nascimento);
                 dao.editar(personagemSalvo);
-
-                //Toast.makeText(FormularioPersonagensActivity.this, personagemSalvo.getNome() + " - " + personagemSalvo.getAltura() + " - " + personagemSalvo.getNascimento(),Toast.LENGTH_SHORT).show();
-
-                //Toast.makeText(FormularioPersonagensActivity.this,"Estou Funcionando",Toast.LENGTH_SHORT).show();
-
-                Intent dados = getIntent();
-                Personagem personagem = (Personagem) dados.getSerializableExtra("personagem");
-                campoNome.setText(personagem.getNome());
-                campoAltura.setText(personagem.getAltura());
-                campoNascimento.setText(personagem.getNascimento());
-
             }
         });
+        Intent dados = getIntent();
+        Personagem personagem = (Personagem) dados.getSerializableExtra("personagem");
+        campoNome.setText(personagem.getNome());
+        campoAltura.setText(personagem.getAltura());
+        campoNascimento.setText(personagem.getNascimento());
     }
 }
