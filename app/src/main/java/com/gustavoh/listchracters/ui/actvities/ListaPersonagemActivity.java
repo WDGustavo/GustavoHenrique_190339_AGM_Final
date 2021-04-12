@@ -2,7 +2,6 @@ package com.gustavoh.listchracters.ui.actvities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,8 +14,6 @@ import com.gustavoh.listchracters.R;
 import com.gustavoh.listchracters.dao.PersonagemDAO;
 import com.gustavoh.listchracters.model.Personagem;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ListaPersonagemActivity extends AppCompatActivity {
