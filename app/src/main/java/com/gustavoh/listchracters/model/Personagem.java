@@ -21,8 +21,18 @@ public class Personagem implements Serializable {
         this.nascimento = nascimento;
     }
 
-    public Personagem(){}
+    public Personagem() {
+    }
 
+
+    //*retornara o que foi escrito pelo usuario
+    @NonNull
+    @Override
+    public String toString() {
+        return nome;
+    }
+
+    //*Cria o local para gravar e pegar a informação
     public String getNome() {
         return nome;
     }
@@ -46,20 +56,18 @@ public class Personagem implements Serializable {
     public void setNascimento(String nascimento) {
         this.nascimento = nascimento;
     }
+    //*
 
-    //retornara o que foi escrito pelo usuario
-    @NonNull
-    @Override
-    public String toString() {
-        return nome;
+    public void setId(int id) {
+        this.id = id;
     }
 
-   public void setId(int id){
-        this.id = id;
-   }
+    public int getId() {
+        return id;
+    }
+    //*
 
-   public int getId ()
-   {
-       return id;
-   }
+    public boolean IdValido() {
+        return id > 0;
+    }
 }
