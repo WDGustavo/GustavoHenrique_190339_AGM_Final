@@ -44,9 +44,18 @@ public class PersonagemDAO {
         //retorna o personagem
         return null;
     }
-
     //função para a lista ser carregada
     public List<Personagem> todos() {
         return new ArrayList<>(personagens);
+    }
+
+    //função para remover o personagem da lista
+    public void remove(Personagem personagem){
+        //pega o id
+        Personagem personagemDevolvido = buscarPersonagemID(personagem);
+        if(personagemDevolvido !=null){
+            //faz a remoção do item
+            personagens.remove(personagemDevolvido);
+        }
     }
 }

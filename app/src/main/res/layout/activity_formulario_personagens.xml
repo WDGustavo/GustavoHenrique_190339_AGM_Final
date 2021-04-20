@@ -33,7 +33,7 @@
 
     <Button
         android:id="@+id/button_enviar"
-        android:layout_width="138dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="enviar" />
 </LinearLayout>
