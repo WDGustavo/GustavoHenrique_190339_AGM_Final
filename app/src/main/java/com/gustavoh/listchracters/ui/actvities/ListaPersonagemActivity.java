@@ -79,6 +79,7 @@ public class ListaPersonagemActivity extends AppCompatActivity {
         //carrega as informações
         adapter.addAll(dao.todos());
     }
+
     //cria a funcção para deletar e não ficar com persistencia de dados
     private void remove(Personagem personagem){
         dao.remove(personagem);
@@ -96,13 +97,18 @@ public class ListaPersonagemActivity extends AppCompatActivity {
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         return configuraMenu(item);
     }
-
+    //configuração do menu
     private boolean configuraMenu(@NonNull MenuItem item) {
+        //pega o id da lista
         int itemId = item.getItemId();
-       if(itemId == R.id.activity_lista_personagem_menu_remover) {
+        //Mostra o menu ao selecionar o ID
+        if(itemId == R.id.activity_lista_personagem_menu_remover) {
            new AlertDialog.Builder(this)
+                   //seta o titulo do menu
                    .setTitle("Remove Personagem")
+                   //mostra a mensagem
                    .setMessage("Tem Certeza que deseja remover")
+                   //se sim faça isso
                    .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                        @Override
                        public void onClick(DialogInterface dialog, int which) {
@@ -113,10 +119,11 @@ public class ListaPersonagemActivity extends AppCompatActivity {
                            remove(personagemEscolhido);
                        }
                    })
+                   //se não faça isso
                    .setNegativeButton("Não", null)
                    .show();
 
-       }
+        }
         return super.onContextItemSelected(item);
     }
 
