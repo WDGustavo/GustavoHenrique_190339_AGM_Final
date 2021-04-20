@@ -43,10 +43,12 @@ public class FormularioPersonagensActivity extends AppCompatActivity {
         //*Permite a edição do elemento da lista
         Intent dados = getIntent();
         if (dados.hasExtra(CHAVE_PERSONAGEM)) {
+            //edita o personagem ja existente
             setTitle(TITULO_APPBAR_EDITA_PERSONAGEM);
             personagem = (Personagem) dados.getSerializableExtra(CHAVE_PERSONAGEM);
             preenchecampos();
         } else {
+            //formulario para colocar um personagem novo
             setTitle(TITULO_APPBAR_NOVO_PERSONAGEM);
             personagem = new Personagem();
         }
