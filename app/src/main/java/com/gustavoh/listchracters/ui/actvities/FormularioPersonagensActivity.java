@@ -2,12 +2,17 @@ package com.gustavoh.listchracters.ui.actvities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import com.gustavoh.listchracters.R;
 import com.gustavoh.listchracters.dao.PersonagemDAO;
 import com.gustavoh.listchracters.model.Personagem;
@@ -25,6 +30,23 @@ public class FormularioPersonagensActivity extends AppCompatActivity {
     private final PersonagemDAO dao = new PersonagemDAO();
     //cria a variavel para pegar as informações da classe Personagem
     private Personagem personagem;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //chama o novo menu
+        getMenuInflater().inflate(R.menu.activity_formulario_personagem_menu_salvar, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId=item.getItemId();
+        //verifica se os dois são iguais caso forem finaliza o formulario
+        if(itemId==R.id.activity_formulario_menu_salvar){
+            finalizarFormulario();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +119,16 @@ public class FormularioPersonagensActivity extends AppCompatActivity {
         campoAltura = findViewById(R.id.edittext_Altura);
         campoNascimento = findViewById(R.id.edittext_data_nascimento);
         //*
+        //configuração da escrita dos campos altura e nascimento utilizando as modificações do rtoshiro
+        //Altura em metros
+        SimpleMaskFormatter smfAltura = new SimpleMaskFormatter("N,NN");
+        MaskTextWatcher mtAltura = new MaskTextWatcher(campoAltura, smfAltura);
+        campoAltura.addTextChangedListener(mtAltura);
+        //Nascimento separado por barra
+        SimpleMaskFormatter smfNascimento = new SimpleMaskFormatter("NN/NN/NNNN");
+        MaskTextWatcher mtNascimento = new MaskTextWatcher(campoNascimento, smfNascimento);
+        campoNascimento.addTextChangedListener(mtNascimento);
+
     }
 
     private void preencherPersonagem() {
