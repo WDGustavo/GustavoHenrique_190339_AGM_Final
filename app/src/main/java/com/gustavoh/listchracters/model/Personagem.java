@@ -15,11 +15,12 @@ public class Personagem implements Serializable {
     private String Genero;
     private String RG;
     private String Cep;
+    private String Endereco;
 
     private int id = 0;
 
     //Cria o construtor
-    public Personagem(String nome, String altura, String nascimento,String telefone,String genero,String rg, String cep) {
+    public Personagem(String nome, String altura, String nascimento,String telefone,String genero,String rg, String cep,String endereco) {
         //Seta o que esta escrito na string para o encapsulamento
         this.nome = nome;
         this.altura = altura;
@@ -28,6 +29,7 @@ public class Personagem implements Serializable {
         this.Genero = genero;
         this.RG = rg;
         this.Cep = cep;
+        this.Endereco = endereco;
     }
 
     public Personagem() {
@@ -81,6 +83,10 @@ public class Personagem implements Serializable {
     public String getCep() { return Cep;}
 
     public void setCep(String cep) { Cep = cep; }
+
+    public String getEndereco() {return Endereco; }
+
+    public void setEndereco(String endereco) {Endereco = endereco;}
 
     //*
     //*Cria o local dos ID

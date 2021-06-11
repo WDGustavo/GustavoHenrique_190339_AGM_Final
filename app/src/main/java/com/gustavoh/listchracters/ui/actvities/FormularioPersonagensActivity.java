@@ -31,7 +31,7 @@ public class FormularioPersonagensActivity extends AppCompatActivity {
     private EditText campoGenero;
     private EditText campoRG;
     private EditText campoCep;
-
+    private EditText campoEndereco;
 
     //Cria uma variavel referente a classe PersonagemDAO
     private final PersonagemDAO dao = new PersonagemDAO();
@@ -93,6 +93,7 @@ public class FormularioPersonagensActivity extends AppCompatActivity {
         campoGenero.setText(personagem.getGenero());
         campoRG.setText(personagem.getRG());
         campoCep.setText((personagem.getCep()));
+        campoEndereco.setText((personagem.getEndereco()));
         //*
     }
 
@@ -133,6 +134,7 @@ public class FormularioPersonagensActivity extends AppCompatActivity {
         campoGenero = findViewById(R.id.editText_Genero);
         campoRG = findViewById(R.id.editText_RG);
         campoCep = findViewById(R.id.editText_Cep);
+        campoEndereco = findViewById(R.id.editText_Endereco);
         //*
         //configuração da escrita dos campos altura e nascimento utilizando as modificações do rtoshiro
         //Altura em metros
@@ -167,6 +169,7 @@ public class FormularioPersonagensActivity extends AppCompatActivity {
         String genero = campoGenero.getText().toString();
         String rg = campoRG.getText().toString();
         String cep = campoCep.getText().toString();
+        String endereco = campoEndereco.getText().toString();
         //*
         //seta o local para salvar a informação adcionada
         personagem.setNome(nome);
@@ -176,6 +179,7 @@ public class FormularioPersonagensActivity extends AppCompatActivity {
         personagem.setGenero(genero);
         personagem.setRG(rg);
         personagem.setCep(cep);
+        personagem.setEndereco(endereco);
         //*
     }
 }
