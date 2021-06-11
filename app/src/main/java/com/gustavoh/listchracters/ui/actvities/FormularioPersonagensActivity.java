@@ -20,12 +20,19 @@ import com.gustavoh.listchracters.model.Personagem;
 import static com.gustavoh.listchracters.ui.actvities.ConstantesActivitys.CHAVE_PERSONAGEM;
 
 public class FormularioPersonagensActivity extends AppCompatActivity {
-
+    //Cria os titulos do appBar
     public static final String TITULO_APPBAR_EDITA_PERSONAGEM = "Editar Personagem";
     public static final String TITULO_APPBAR_NOVO_PERSONAGEM = "Novo Personagem";
+    //Cria a variavel para pegar os edittexts
     private EditText campoNome;
     private EditText campoAltura;
     private EditText campoNascimento;
+    private EditText campoTelefone;
+    private EditText campoGenero;
+    private EditText campoRG;
+    private EditText campoCep;
+
+
     //Cria uma variavel referente a classe PersonagemDAO
     private final PersonagemDAO dao = new PersonagemDAO();
     //cria a variavel para pegar as informações da classe Personagem
@@ -82,6 +89,10 @@ public class FormularioPersonagensActivity extends AppCompatActivity {
         campoNome.setText(personagem.getNome());
         campoAltura.setText(personagem.getAltura());
         campoNascimento.setText(personagem.getNascimento());
+        campoTelefone.setText(personagem.getTelefone());
+        campoGenero.setText(personagem.getGenero());
+        campoRG.setText(personagem.getRG());
+        campoCep.setText((personagem.getCep()));
         //*
     }
 
@@ -118,6 +129,10 @@ public class FormularioPersonagensActivity extends AppCompatActivity {
         campoNome = findViewById(R.id.edittext_Nome);
         campoAltura = findViewById(R.id.edittext_Altura);
         campoNascimento = findViewById(R.id.edittext_data_nascimento);
+        campoTelefone = findViewById(R.id.editText_Telefone);
+        campoGenero = findViewById(R.id.editText_Genero);
+        campoRG = findViewById(R.id.editText_RG);
+        campoCep = findViewById(R.id.editText_Cep);
         //*
         //configuração da escrita dos campos altura e nascimento utilizando as modificações do rtoshiro
         //Altura em metros
@@ -128,6 +143,18 @@ public class FormularioPersonagensActivity extends AppCompatActivity {
         SimpleMaskFormatter smfNascimento = new SimpleMaskFormatter("NN/NN/NNNN");
         MaskTextWatcher mtNascimento = new MaskTextWatcher(campoNascimento, smfNascimento);
         campoNascimento.addTextChangedListener(mtNascimento);
+        //Mascara do numero de telefone
+        SimpleMaskFormatter smfTelefone = new SimpleMaskFormatter("(NN)NNNNN-NNNN");
+        MaskTextWatcher mtTelefone = new MaskTextWatcher(campoTelefone,smfTelefone);
+        campoTelefone.addTextChangedListener(mtTelefone);
+        //Mascara do RG
+        SimpleMaskFormatter smfRG = new SimpleMaskFormatter("NN.NNN.NNN-N");
+        MaskTextWatcher mtRG = new MaskTextWatcher(campoRG,smfRG);
+        campoRG.addTextChangedListener(mtRG);
+        //Mascara do CEP
+        SimpleMaskFormatter smfCep = new SimpleMaskFormatter("NNNNN-NNN");
+        MaskTextWatcher mtCep = new MaskTextWatcher(campoCep,smfCep);
+        campoCep.addTextChangedListener(mtCep);
 
     }
 
@@ -136,11 +163,19 @@ public class FormularioPersonagensActivity extends AppCompatActivity {
         String nome = campoNome.getText().toString();
         String altura = campoAltura.getText().toString();
         String nascimento = campoNascimento.getText().toString();
+        String telefone = campoTelefone.getText().toString();
+        String genero = campoGenero.getText().toString();
+        String rg = campoRG.getText().toString();
+        String cep = campoCep.getText().toString();
         //*
         //seta o local para salvar a informação adcionada
         personagem.setNome(nome);
         personagem.setAltura(altura);
         personagem.setNascimento(nascimento);
+        personagem.setTelefone(telefone);
+        personagem.setGenero(genero);
+        personagem.setRG(rg);
+        personagem.setCep(cep);
         //*
     }
 }

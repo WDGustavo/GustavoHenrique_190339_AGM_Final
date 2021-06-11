@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Name" />
+        android:hint="Nome" />
 
     <EditText
         android:id="@+id/edittext_Altura"
@@ -27,14 +27,14 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="numberDecimal"
-        android:hint="altura" />
+        android:hint="Altura" />
 
     <EditText
         android:id="@+id/edittext_data_nascimento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="data de nascimento"
+        android:hint="Data de Nascimento"
         android:inputType="date" />
 
     <Button
@@ -43,5 +43,38 @@
         android:layout_height="wrap_content"
         android:text="enviar"
         android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/editText_Telefone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Telefone"
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/editText_Genero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Genero" />
+
+        <EditText
+            android:id="@+id/editText_RG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPostalAddress"
+            android:hint="RG"/>
+
+        <EditText
+            android:id="@+id/editText_Cep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPostalAddress"
+            android:hint="Cep"/>
+
     </LinearLayout>
 </ScrollView>
